@@ -1,6 +1,6 @@
 
 import { Route, Routes } from 'react-router-dom'
-import { HomePage, UserPage} from '../gif/pages'
+import { HomePage} from '../gif/pages'
 
 export const AppRouter = () => {
   return (

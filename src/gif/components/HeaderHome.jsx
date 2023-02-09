@@ -4,15 +4,15 @@ import gifhub from '../../assets/img/gitGif.gif'
 
 export const HeaderHome = ({gifs}) => {
 
-  const blankContent = () => {
-    return(
-      <>
-        <h1 className="header-title text-center">Welcome to Gif Hub</h1>
-        <p>This is a gifs app where you can search, view and save your own gif collection</p>
-        <img src={gifhub} alt="Example gif" />
-      </>
-    )
-  }
+  // const blankContent = () => {
+  //   return(
+  //     <>
+  //       <h1 className="header-title text-center">Welcome to Gif Hub</h1>
+  //       <p>This is a gifs app where you can search, view and save your own gif collection</p>
+  //       <img src={gifhub} alt="Example gif" />
+  //     </>
+  //   )
+  // }
 
   const showGifs = () => (
     <>
@@ -60,7 +60,7 @@ export const HeaderHome = ({gifs}) => {
       display: 'flex',
       padding: '1rem'
     }}>
-      {gifs === undefined && blankContent()}
+      {gifs === undefined }
       {gifs?.length === 0 && noResult()}
       {gifs?.length > 0 && showGifs()}
     </div>

@@ -16,7 +16,7 @@ export const HomePage = () => {
     axios
       .get("http://localhost:4000/api/gif/categories")
       .then(({data}) => {
-        setCategories(data)
+        setCategories(data.slice(0,3))
       })
   },[])
 
