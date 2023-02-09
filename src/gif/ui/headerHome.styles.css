@@ -2,7 +2,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     flex-direction: column;
     background-color: black;
     color: white;
@@ -14,12 +13,5 @@ header {
     width: 50%;
     margin: 0 auto;
     display: block;
-  }
-  
-  @media (min-width: 768px) {
-    header {
-      height: 60vh;
-    }
-  
   }
   

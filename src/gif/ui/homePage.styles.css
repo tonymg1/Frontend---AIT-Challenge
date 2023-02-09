@@ -2,8 +2,11 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    margin: 0;
+    background-color: black;
+    color: white;
   }
   
-  .main-content {
-    flex: 1;
-  }
+.main-content {
+  flex: 1;
+}
