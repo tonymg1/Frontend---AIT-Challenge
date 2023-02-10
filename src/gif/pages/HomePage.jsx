@@ -2,11 +2,7 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 
 import '../ui/homePage.styles.css'
-import {Navbar} from '../components/Navbar'
-import { HeaderHome } from '../components/HeaderHome'
-import { Footer } from '../components/Footer'
-import { UploadGif } from '../components/UploadGif';
-
+import {Navbar, HeaderHome, Footer, UploadGif} from '../components'
 export const HomePage = () => {
   const [searchText, setSearchText] = useState('');
   const [categories, setCategories] = useState([]);
