@@ -42,7 +42,7 @@ export const HomePage = () => {
   return (
     <>
     <Navbar categories={categories} searchText={searchText} setSearchText={setSearchText}/>
-    <UploadGif />
+    <UploadGif categories={categories} />
     <HeaderHome gifs={gifs}/>
     <Footer />
     </>

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 export const UploadGif = () => {
   const [file, setFile] = useState();
+  const [category, setCategory] = useState("");
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
     axios
@@ -24,11 +24,15 @@ export const UploadGif = () => {
   };
 
   const handleOnClick = () => {
+    if (!category) {
+      return alert("Por favor seleccione una categoría");
+    }
+
     const formData = new FormData();
     formData.append("title", "titi");
-    formData.append("category", selectedCategory);
+    formData.append("category", category);
     formData.append("content", file);
-    console.log(selectedCategory);
+    console.log(category);
     axios({
       method: "post",
       url: "http://localhost:4000/api/gif",
@@ -42,15 +46,16 @@ export const UploadGif = () => {
       .catch(() => alert("Something went wrong :("));
   };
 
-  const handleCategoryChange = (e) => {
-    setSelectedCategory(e.target.value);
+  const handleCategory = (e) => {
+    setCategory(e.target.value);
   };
 
   return (
     <header>
       <div>
         <input type="file" onChange={handleFileChange} />
-        <select onChange={handleCategoryChange}>
+        <select onChange={handleCategory} value={category}>
+          <option value="">Select category</option>
           {categories.map((category) => (
             <option key={category} value={category}>
               {category}
