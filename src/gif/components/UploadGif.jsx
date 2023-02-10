@@ -51,7 +51,7 @@ export const UploadGif = () => {
             </option>
           ))}
         </select>
-        <button onClick={handleOnClick}>Upload your gifs</button>
+        <button onClick={handleOnClick}>Upload your gif</button>
       </div>
     </header>
   );
