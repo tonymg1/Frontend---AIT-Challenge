@@ -1,15 +1,15 @@
 'use strict'
 // import { AuthPage } from "./auth/pages"
 // import { useAuth0 } from "@auth0/auth0-react"
-import { AuthProvider } from "./context/AuthContex"
+
 import { AppRouter } from "./router/app.routes"
 function App() {
   // const {isAuthenticated} = useAuth0()
   return (
     <>
-    <AuthProvider>
+   
     <AppRouter />
-    </AuthProvider>
+
     {/* {isAuthenticated ? <HomePage /> :
     <AuthPage />} */}
     
