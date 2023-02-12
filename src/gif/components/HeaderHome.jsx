@@ -22,7 +22,8 @@ export const HeaderHome = ({gifs}) => {
 
   const noResult = () => {
     return (
-      <p>No result found for that search</p>
+      <p>No results found for that search</p>
+     
     )
   }
 
