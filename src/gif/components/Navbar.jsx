@@ -7,9 +7,9 @@ export const Navbar = ({ categories, searchText, setSearchText }) => {
   const onInputChange = (event) => {
     setSearchText(event.target.value)
   };
-  const {user} = useAuth0()
-  console.log(user)
-  const userName = user.given_name
+  // const {user} = useAuth0()
+  // console.log(user)
+  // const userName = user.given_name
 
 
   return (
@@ -23,7 +23,7 @@ export const Navbar = ({ categories, searchText, setSearchText }) => {
       </ul>
       <input className="form-control mr-sm-2" type="text" placeholder="Search..." aria-label="Search" value={searchText} onChange={onInputChange} />
       <div className="navbar-right">
-        <h1 className="navbar-username">{userName}</h1>
+        <h1 className="navbar-username">userName</h1>
         {/* <button className="btn btn-outline-light navbar-logout">Logout</button> */}
         <LogoutButton />
       </div>

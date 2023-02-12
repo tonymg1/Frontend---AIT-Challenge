@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import '../ui/uploadGif.styles.css'
 export const UploadGif = () => {
   const [file, setFile] = useState();
   const [category, setCategory] = useState("");
@@ -53,7 +53,12 @@ export const UploadGif = () => {
   return (
     <header>
       <div>
-        <input type="file" onChange={handleFileChange} />
+      <label>
+  <div className="file-input-placeholder">
+   Select a file
+  </div>
+  <input type="file" onChange={handleFileChange} style={{ display: "none" }} />
+</label>
         <select onChange={handleCategory} value={category}>
           <option value="">Select category</option>
           {categories.map((category) => (

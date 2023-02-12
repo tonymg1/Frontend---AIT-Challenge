@@ -42,12 +42,48 @@
   }
   
   
-  @media (max-width: 992px) {
+  @media (max-width: 767px) {
+    .navbar {
+      flex-wrap: wrap;
+      display: flex;
+      justify-content: center;
+    }
+  
     .navbar-nav {
-      display: none;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  
+    .navbar-right {
+      width: 100%;
+
+      display: flex;
+      justify-content: center;
+      order: -1
+    }
+  
+    .form-control {
+      width: 40%;
+    }
+    .navbar-username {
+      font-size: 15px;
+    }
+    .nav-link{
+      font-size: 15px;
+      
     }
   }
   
   
-  
-  
+
+    @media (max-width: 1024px) and (min-width: 768px) {
+    .navbar-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 30px;
+    }
+    }
+
+
+

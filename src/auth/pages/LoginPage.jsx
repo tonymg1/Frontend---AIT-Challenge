@@ -7,7 +7,7 @@ export const LoginPage = () => {
   return (
     <div className="container">
     <h1 className="welcome">Welcome to GifHub!</h1>
-    <img src={gitGif} alt="Logo" />
+    <img src={gitGif} alt="Logo" className="logo" />
     <LoginButton />
     </div>
     

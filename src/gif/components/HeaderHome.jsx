@@ -16,10 +16,7 @@ export const HeaderHome = ({gifs}) => {
     const imgSrc = generateSrc(data)
 
     return(
-      <img src={imgSrc} style={{
-        maxWidth: '200px',
-        height: 'fit-content'
-      }}/>
+      <img src={imgSrc} className="images"/>
     )
   }
 
@@ -45,15 +42,10 @@ export const HeaderHome = ({gifs}) => {
   }
 
   return (
-    <div style={{
-      width: '100%',
-      minHeight: '75vh',
-      display: 'flex',
-      padding: '1rem'
-    }}>
-      {gifs === undefined }
-      {gifs?.length === 0 && noResult()}
-      {gifs?.length > 0 && showGifs()}
-    </div>
+<div className="header-home-container">
+  {gifs === undefined }
+  {gifs?.length === 0 && noResult()}
+  {gifs?.length > 0 && showGifs()}
+</div>
   )
 }
