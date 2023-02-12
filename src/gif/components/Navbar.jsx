@@ -20,7 +20,7 @@ export const Navbar = ({ categories, searchText, setSearchText }) => {
           </li>  
         ))}
       </ul>
-      <input className="form-control mr-sm-2" type="text" placeholder="Search..." aria-label="Search" value={searchText} onChange={onInputChange} />
+      <input className="form-control mr-sm-2" type="text" placeholder="category..." aria-label="Search" value={searchText} onChange={onInputChange} />
       <div className="navbar-right">
         <h1 className="navbar-username">{userName}</h1>
         {/* <button className="btn btn-outline-light navbar-logout">Logout</button> */}
