@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../ui/uploadGif.styles.css'
+
 export const UploadGif = () => {
   const [file, setFile] = useState();
   const [category, setCategory] = useState("");
@@ -25,7 +28,7 @@ export const UploadGif = () => {
 
   const handleOnClick = () => {
     if (!category) {
-      return alert("Please, select a category");
+      return toast("Please, select a category,", {type: "info", position: "top-center"})
     }
 
     const formData = new FormData();
@@ -42,8 +45,8 @@ export const UploadGif = () => {
         "Content-Type": "multipart/form-data",
       },
     })
-      .then(() => alert("Uploaded!"))
-      .catch(() => alert("Something went wrong :("));
+      .then(() => toast("Upload successful!", {type: "success", position: "top-center"}))
+      .catch(() => toast("Upload failed!", {type: "error", position: "top-center"}))
   };
 
   const handleCategory = (e) => {
@@ -53,12 +56,13 @@ export const UploadGif = () => {
   return (
     <header>
       <div>
-      <label>
-  <div className="file-input-placeholder">
-   Select a file
-  </div>
-  <input type="file" onChange={handleFileChange} style={{ display: "none" }} />
-</label>
+        <label>
+          <div className="file-input-placeholder">
+            Select a file
+          </div>
+          <input type="file" onChange={handleFileChange} style={{ display: "none" }} />
+        </label>
+
         <select onChange={handleCategory} value={category}>
           <option value="">Select category</option>
           {categories.map((category) => (
@@ -67,7 +71,9 @@ export const UploadGif = () => {
             </option>
           ))}
         </select>
+      
         <button onClick={handleOnClick}>Upload your gif</button>
+        <ToastContainer />
       </div>
     </header>
   );
