@@ -25,7 +25,7 @@ export const UploadGif = () => {
 
   const handleOnClick = () => {
     if (!category) {
-      return alert("Por favor seleccione una categoría");
+      return alert("Please, select a category");
     }
 
     const formData = new FormData();
