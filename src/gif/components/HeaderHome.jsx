@@ -11,12 +11,19 @@ export const HeaderHome = ({gifs}) => {
     </>
   )
 
-  const showGif = (gif) => {
-    const {data} = gif.content
+
+
+  const showGif = ({content, title}) => {
+    const {data} = content
     const imgSrc = generateSrc(data)
+  
 
     return(
-      <img src={imgSrc} className="images"/>
+      <>
+<img src={imgSrc} className="images"/>
+      <p>{title}</p>
+      </>
+      
     )
   }
 
