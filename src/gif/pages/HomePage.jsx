@@ -21,7 +21,8 @@ export const HomePage = () => {
 
     if(searchText){
       params.category = searchText
-    }
+    } 
+   
 
     axios
       .get("http://localhost:4000/api/gif",{

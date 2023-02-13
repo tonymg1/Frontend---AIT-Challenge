@@ -20,6 +20,7 @@ export const UploadGif = () => {
       });
   }, []);
 
+
   const handleFileChange = (e) => {
     const { files } = e.target;
     if (files) {
@@ -32,7 +33,10 @@ export const UploadGif = () => {
 
   const handleOnClick = () => {
     if (!category) {
-      return toast("Please, select a category,", {type: "info", position: "top-center"})
+      return toast("Please, select a category.", {type: "info", position: "top-center"})
+    }
+    if (!title) {
+      return toast("Please, insert a title.", {type: "info", position: "top-center"})
     }
     
 
