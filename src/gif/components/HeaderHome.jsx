@@ -20,8 +20,12 @@ export const HeaderHome = ({gifs}) => {
 
     return(
       <>
-<img src={imgSrc} className="images"/>
-      <p>{title}</p>
+      <div className='image-container'>
+      <img src={imgSrc} className="images"/>
+      <p className="image-title">{title}</p>
+      </div>
+    
+  
       </>
       
     )
