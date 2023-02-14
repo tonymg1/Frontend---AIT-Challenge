@@ -57,7 +57,7 @@ export const UploadGif = () => {
     })
       .then(() => {
         setIsUpoaded(true);
-        toast("Upload successful!", {type: "success", position: "top-center"});
+        window.location.reload(true);
         resetValues()
       })
       .catch(() => toast("Upload failed!", {type: "error", position: "top-center"}));

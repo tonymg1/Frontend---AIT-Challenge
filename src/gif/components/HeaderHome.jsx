@@ -1,6 +1,7 @@
 import axios from 'axios'
 import '../ui/headerHome.styles.css'
 import { ToastContainer, toast } from 'react-toastify';
+import { FaTrash } from 'react-icons/fa';
 
 export const HeaderHome = ({gifs}) => {
  
@@ -22,15 +23,7 @@ export const HeaderHome = ({gifs}) => {
       axios.delete(`http://localhost:4000/api/gif/${id}`)
       .then(res => {
         if (res.status === 200) {
-        
-          toast.success('Deleted!', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-          });
+          window.location.reload(false);
         }
       })
       .catch(err => {
@@ -52,7 +45,8 @@ export const HeaderHome = ({gifs}) => {
       <div className='image-container'>
       <img src={imgSrc} className="images"/>
       <p className="image-title">{title}</p>
-      <button onClick={()=>handleDelete(_id)}>Delete</button>
+      <button onClick={()=>handleDelete(_id)}> <FaTrash /></button>
+     
       </div>
       </>
       
@@ -61,7 +55,7 @@ export const HeaderHome = ({gifs}) => {
 
   const noResult = () => {
     return (
-      <p>No results found for that search</p>
+      <p>No results</p>
      
     )
   }
