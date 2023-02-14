@@ -3,14 +3,16 @@ import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import { FaUpload } from 'react-icons/fa';
 import 'react-toastify/dist/ReactToastify.css';
-import '../ui/uploadGif.styles.css'
+import '../ui/uploadGif.styles.css';
+import '../ui/popup.styles.css'
+import { Button } from 'react-bootstrap';
 
 export const UploadGif = () => {
   const [file, setFile] = useState();
   const [category, setCategory] = useState("");
   const [categories, setCategories] = useState([]);
-  const [title, setTitle] = useState("")
-  const [isUploaded, setIsUpoaded] = useState(false)
+  const [title, setTitle] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     axios
@@ -19,7 +21,6 @@ export const UploadGif = () => {
         setCategories(data);
       });
   }, []);
-
 
   const handleFileChange = (e) => {
     const { files } = e.target;
@@ -38,13 +39,11 @@ export const UploadGif = () => {
     if (!title) {
       return toast("Please, insert a title.", {type: "info", position: "top-center"})
     }
-    
 
     const formData = new FormData();
     formData.append("title", title);
     formData.append("category", category);
     formData.append("content", file);
-
 
     axios({
       method: "post",
@@ -56,51 +55,75 @@ export const UploadGif = () => {
       },
     })
       .then(() => {
-        setIsUpoaded(true);
         window.location.reload(true);
-        resetValues()
+        setShowPopup(false);
+        resetValues();
       })
       .catch(() => toast("Upload failed!", {type: "error", position: "top-center"}));
-    };
+  };
 
   const handleCategory = (e) => {
     setCategory(e.target.value);
   };
-  const resetValues = ()=>{
+
+  const resetValues = () => {
     setFile(undefined);
     setCategory("");
     setTitle("");
-    setIsUpoaded(false);
-  }
+  };
 
   return (
     <header>
-      <div>
-        <label>
-          <div className="file-input-placeholder">
-          <FaUpload />
-          </div>
-          <input type="file" onChange={handleFileChange} style={{ display: "none" }} />
-        </label>
-        <input
-        className="image-title"
-          type="text"
-          placeholder="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <select onChange={handleCategory} value={category}>
-          <option value="">Select category</option>
-          {categories.map((category) => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
-      
-        <button onClick={handleOnClick}>Upload your gif</button>
-        <ToastContainer />
-      </div>
-    </header>
-  );
+      <Button variant="primary" onClick={() => setShowPopup(true)}>
+        <FaUpload />
+      </Button>
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-inner">
+            <div className="form-group">
+              <label htmlFor="category">Category:</label>
+              <select className="form-control" id="category" onChange={handleCategory} value={category}>
+<option value="" >
+Category
+</option>
+{categories.map((category) => (
+<option key={category} value={category}>
+{category}
+</option>
+))}
+</select>
+</div>
+<div className="form-group">
+</div>
+<div className="form-group">
+<label htmlFor="content">File:</label>
+<input
+             type="file"
+             className="form-control-file"
+             id="content"
+             onChange={handleFileChange}
+           />
+</div>
+<label htmlFor="title">Title:</label>
+<input
+type="text"
+className="form-control"
+id="title"
+value={title}
+onChange={(e) => setTitle(e.target.value)}
+/>
+<div className="form-group">
+<button className="btn btn-primary" onClick={handleOnClick}>
+Upload
+</button>
+<button className="btn btn-secondary" onClick={() => setShowPopup(false)}>
+Cancel
+</button>
+</div>
+</div>
+</div>
+)}
+<ToastContainer />
+</header>
+);
 };

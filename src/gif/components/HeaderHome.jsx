@@ -2,7 +2,6 @@ import axios from 'axios'
 import '../ui/headerHome.styles.css'
 import { ToastContainer, toast } from 'react-toastify';
 import { FaTrash } from 'react-icons/fa';
-
 export const HeaderHome = ({gifs}) => {
  
 
