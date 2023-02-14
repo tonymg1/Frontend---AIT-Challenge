@@ -1,9 +1,9 @@
-import React from 'react'
+import axios from 'axios'
 import '../ui/headerHome.styles.css'
-
+import { ToastContainer, toast } from 'react-toastify';
 
 export const HeaderHome = ({gifs}) => {
-
+ 
 
   const showGifs = () => (
     <>
@@ -13,19 +13,47 @@ export const HeaderHome = ({gifs}) => {
 
 
 
-  const showGif = ({content, title}) => {
+  const showGif = ({content, title, _id}) => {
     const {data} = content
     const imgSrc = generateSrc(data)
   
+    const handleDelete = (id)=>{
+    
+      axios.delete(`http://localhost:4000/api/gif/${id}`)
+      .then(res => {
+        if (res.status === 200) {
+        
+          toast.success('Deleted!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        }
+      })
+      .catch(err => {
+        console.log(err)
+        toast.error('Ocurrió un error al intentar eliminar la imagen', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      })
+        
+    }
 
     return(
       <>
       <div className='image-container'>
       <img src={imgSrc} className="images"/>
       <p className="image-title">{title}</p>
+      <button onClick={()=>handleDelete(_id)}>Delete</button>
       </div>
-    
-  
       </>
       
     )
