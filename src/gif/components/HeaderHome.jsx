@@ -59,8 +59,8 @@ export const HeaderHome = ({gifs}) => {
       <img src={imgSrc} className="images"/>
       <p className="image-title">{title}</p>
       <div>
-      <button onClick={()=>handleEdit(_id, title)}style={{color: 'green'}}><FaEdit/></button>
-      <button onClick={()=>handleDelete(_id)} style={{color: 'red'}}> <FaTrash /></button>
+      <button onClick={()=>handleEdit(_id, title)}style={{color: 'green', backgroundColor: 'white'}}><FaEdit/></button>
+      <button onClick={()=>handleDelete(_id)} style={{color: 'red', backgroundColor: 'transparent'}}> <FaTrash /></button>
 
       </div>
       

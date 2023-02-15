@@ -80,7 +80,7 @@ export const UploadGif = () => {
     {showPopup && (
       <div style={{
         position: 'fixed',
-        top: '50%',
+        top: '20%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
         backgroundColor: 'black',
@@ -93,40 +93,50 @@ export const UploadGif = () => {
           alignItems: 'center'
         }}>
           <div className="form-group">
-            <label htmlFor="category">Category:</label>
+       
             <select
               className="form-control"
               id="category"
               onChange={handleCategory}
               value={category}
             >
-              <option value="">Category</option>
+              <option value="" >Category</option>
               {categories.map((category) => (
-                <option key={category} value={category}>
+                <option key={category} value={category} >
                   {category}
                 </option>
               ))}
             </select>
           </div>
           <div className="form-group">
-            <label htmlFor="content" style={{}}>Click here to select a file</label>
-            <input
-              type="file"
-              className="form-control-file"
-              id="content"
-              onChange={handleFileChange}
-              style={{ display: 'none' }}
-            />
+          <label htmlFor="content" style={{ position: "relative" }}>
+  <input
+    type="file"
+    className="form-control-file"
+    id="content"
+    onChange={handleFileChange}
+    style={{ visibility: "hidden", width:"50%"}}
+  />
+  <button
+    type="button"
+    style={{ position: "absolute", top: 0, left: "25%", width: "50%" }}
+  >
+   File
+  </button>
+  <span style={{ position: "absolute", top: 0, left: 0, opacity: 0 }}>
+    Select a file
+  </span>
+</label>
           </div>
           <div className="form-group">
-            <label htmlFor="title">Title:</label>
+        
             <input
               type="text"
               className="form-control"
               id="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              style={{ backgroundColor:'#378CCD'}}
+              placeholder="title of gif"
             />
           </div>
           <div className="form-group">
