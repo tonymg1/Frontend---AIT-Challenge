@@ -16,7 +16,7 @@ export const Navbar = ({ categories, searchText, setSearchText }) => {
       <ul className="navbar-nav navbar-left">
         {categories.map((category) => (
           <li className="nav-item">
-            <a className="nav-link" href="#" onClick={() => setSearchText(category)} style={{color: "#DE2D4A"}}>{category}</a>
+            <a className="nav-link" href="#" onClick={() => setSearchText(category)} style={{color: "#2762BE"}}>{category}</a>
           </li>  
         ))}
       </ul>
