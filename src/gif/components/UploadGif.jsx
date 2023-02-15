@@ -80,7 +80,7 @@ export const UploadGif = () => {
     {showPopup && (
       <div style={{
         position: 'fixed',
-        top: '20%',
+        top: '15%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
         backgroundColor: 'black',
@@ -100,7 +100,7 @@ export const UploadGif = () => {
               onChange={handleCategory}
               value={category}
             >
-              <option value="" >Category</option>
+              <option value="">Category</option>
               {categories.map((category) => (
                 <option key={category} value={category} >
                   {category}
@@ -150,7 +150,7 @@ export const UploadGif = () => {
             <button
               className="btn btn-secondary"
               onClick={() => setShowPopup(false)}
-              style={{ backgroundColor: 'red', marginTop: '20px' }}
+              style={{ backgroundColor: '#BE3D27',  }}
             >
               Cancel
             </button>
