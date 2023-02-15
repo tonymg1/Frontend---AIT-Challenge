@@ -74,56 +74,82 @@ export const UploadGif = () => {
 
   return (
     <header>
-      <Button variant="primary" onClick={() => setShowPopup(true) } style={{color:'blue'}}>
-        <FaUpload />
-      </Button>
-      {showPopup && (
-        <div className="popup">
-          <div className="popup-inner">
-            <div className="form-group">
-              <label htmlFor="category">Category:</label>
-              <select className="form-control" id="category" onChange={handleCategory} value={category}>
-<option value="" >
-Category
-</option>
-{categories.map((category) => (
-<option key={category} value={category}>
-{category}
-</option>
-))}
-</select>
-</div>
-<div className="form-group">
-</div>
-<div className="form-group">
-<label htmlFor="content">File:</label>
-<input
-             type="file"
-             className="form-control-file"
-             id="content"
-             onChange={handleFileChange}
-           />
-</div>
-<label htmlFor="title">Title:</label>
-<input
-type="text"
-className="form-control"
-id="title"
-value={title}
-onChange={(e) => setTitle(e.target.value)}
-/>
-<div className="form-group">
-<button className="btn btn-primary" onClick={handleOnClick}>
-Upload
-</button>
-<button className="btn btn-secondary" onClick={() => setShowPopup(false)}>
-Cancel
-</button>
-</div>
-</div>
-</div>
-)}
-<ToastContainer />
-</header>
+    <Button variant="primary" onClick={() => setShowPopup(true)} style={{color: "blue"}}>
+      <FaUpload />
+    </Button>
+    {showPopup && (
+      <div style={{
+        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        backgroundColor: 'black',
+        padding: '20px',
+        borderRadius: '10px'
+      }}>
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }}>
+          <div className="form-group">
+            <label htmlFor="category">Category:</label>
+            <select
+              className="form-control"
+              id="category"
+              onChange={handleCategory}
+              value={category}
+            >
+              <option value="">Category</option>
+              {categories.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="form-group">
+            <label htmlFor="content" style={{}}>Click here to select a file</label>
+            <input
+              type="file"
+              className="form-control-file"
+              id="content"
+              onChange={handleFileChange}
+              style={{ display: 'none' }}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="title">Title:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              style={{ backgroundColor:'#378CCD'}}
+            />
+          </div>
+          <div className="form-group">
+            <button
+              className="btn btn-primary"
+              onClick={handleOnClick}
+              style={{ backgroundColor: '#378CCD', marginTop: '20px' }}
+            >
+              Upload
+            </button>
+            <button
+              className="btn btn-secondary"
+              onClick={() => setShowPopup(false)}
+              style={{ backgroundColor: 'red', marginTop: '20px' }}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    )}
+    <ToastContainer />
+  </header>
+     
 );
 };
