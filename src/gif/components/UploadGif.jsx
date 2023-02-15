@@ -74,7 +74,7 @@ export const UploadGif = () => {
 
   return (
     <header>
-      <Button variant="primary" onClick={() => setShowPopup(true)}>
+      <Button variant="primary" onClick={() => setShowPopup(true) } style={{color:'blue'}}>
         <FaUpload />
       </Button>
       {showPopup && (

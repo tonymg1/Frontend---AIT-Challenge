@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios'
 import '../ui/headerHome.styles.css'
 import { ToastContainer, toast } from 'react-toastify';
-import { FaTrash } from 'react-icons/fa';
+import { FaTrash, FaEdit} from 'react-icons/fa';
 
 
 export const HeaderHome = ({gifs}) => {
@@ -58,8 +58,12 @@ export const HeaderHome = ({gifs}) => {
       <div className='image-container'>
       <img src={imgSrc} className="images"/>
       <p className="image-title">{title}</p>
-      <button onClick={()=>handleDelete(_id)}> <FaTrash /></button>
-      <button onClick={()=>handleEdit(_id, title)}>Edit</button>
+      <div>
+      <button onClick={()=>handleEdit(_id, title)}style={{color: 'green'}}><FaEdit/></button>
+      <button onClick={()=>handleDelete(_id)} style={{color: 'red'}}> <FaTrash /></button>
+
+      </div>
+      
       </div>
       </>
     )
